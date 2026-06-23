@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Untuk Najla — Jurnal Memori Romantis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="floating-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="#opening" class="nav-item active">Awal</a>
+            <a href="#scrapbook" class="nav-item">Memori</a>
+            <a href="#gift" class="nav-item">Hadiah</a>
+            <a href="#letter" class="nav-item">Surat</a>
+            <a href="#wishes" class="nav-item">Harapan</a>
+            <a href="#closing" class="nav-item">Akhir</a>
+        </div>
+    </nav>
+
+    <section id="opening" class="section-container full-screen-center">
+        <div class="glass-card opening-card active" id="gameCard">
+            <div class="ornament-sparkle top-right"></div>
+            <div class="ornament-flower bottom-left"></div>
+            
+            <h1 class="heading-text">Selamat Datang</h1>
+            <p class="body-text accent-text text-center italic-phrase" id="randomQuoteOpening">
+                "Sebuah halaman kecil yang semoga selalu menyimpan banyak alasan untuk tersenyum."
+            </p>
+            
+            <div class="game-wrapper">
+                <p class="body-text text-center text-bold">Selesaikan tantangan kecil ini untuk membuka:</p>
+                <div class="math-question" id="mathQuestion">0 + 0</div>
+                <div class="math-input-wrapper">
+                    <input type="number" id="mathAnswer" placeholder="Jawab di sini..." min="-100" max="200" required>
+                    <button id="btnVerify" class="ios-btn">Verifikasi</button>
+                </div>
+            </div>
+
+            <button id="btnStartJourney" class="ios-btn locked-btn" disabled>
+                <span>Mulai Perjalanan</span>
+                <svg class="lock-icon" viewBox="0 0 24 24" width="18" height="18"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <main id="mainContent" class="content-hidden">
+
+        <section id="scrapbook" class="section-container">
+            <header class="section-header">
+                <span class="accent-text">Koleksi Abadi</span>
+                <h2 class="heading-text">Galeri Kenangan Najla</h2>
+                <div class="washi-tape-top"></div>
+            </header>
+
+            <div class="pinterest-masonry">
+                <div class="scrapbook-card reveal-element">
+                    <div class="paper-clip"></div>
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo1.jpg" alt="Memori 1" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-1"></p>
+                    </div>
+                </div>
+                <div class="scrapbook-card reveal-element">
+                    <div class="washi-tape"></div>
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo2.jpg" alt="Memori 2" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-2"></p>
+                    </div>
+                </div>
+                <div class="scrapbook-card reveal-element">
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo3.jpg" alt="Memori 3" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-3"></p>
+                    </div>
+                </div>
+                <div class="scrapbook-card reveal-element">
+                    <div class="ornament-heart-icon"></div>
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo4.jpg" alt="Memori 4" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-4"></p>
+                    </div>
+                </div>
+                <div class="scrapbook-card reveal-element">
+                    <div class="paper-clip"></div>
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo5.jpg" alt="Memori 5" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-5"></p>
+                    </div>
+                </div>
+                <div class="scrapbook-card reveal-element">
+                    <div class="washi-tape"></div>
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo6.jpg" alt="Memori 6" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-6"></p>
+                    </div>
+                </div>
+                <div class="scrapbook-card reveal-element">
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo7.jpg" alt="Memori 7" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-7"></p>
+                    </div>
+                </div>
+                <div class="scrapbook-card reveal-element">
+                    <div class="ornament-sparkle-icon"></div>
+                    <div class="photo-wrapper-34">
+                        <img src="assets/images/photo8.jpg" alt="Memori 8" class="scrapbook-img" loading="lazy">
+                    </div>
+                    <div class="card-caption">
+                        <p class="caption-text font-accent" id="quote-8"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gift" class="section-container">
+            <header class="section-header">
+                <span class="accent-text">Bingkisan Rahasia</span>
+                <h2 class="heading-text">Kartu Kejutan Premium</h2>
+            </header>
+            <div class="gift-grid">
+                <div class="gift-card-3d reveal-element">
+                    <div class="gift-card-inner">
+                        <div class="gift-card-front glass-card">
+                            <div class="gift-ribbon-svg"></div>
+                            <h3 class="heading-text">Kotak Rasa</h3>
+                            <p class="body-text">Ketuk untuk membuka</p>
+                        </div>
+                        <div class="gift-card-back glass-card">
+                            <div class="strawberry-ornament"></div>
+                            <p class="body-text back-letter-text" id="giftQuote-1"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gift-card-3d reveal-element">
+                    <div class="gift-card-inner">
+                        <div class="gift-card-front glass-card">
+                            <div class="gift-ribbon-svg"></div>
+                            <h3 class="heading-text">Dekapan Waktu</h3>
+                            <p class="body-text">Ketuk untuk membuka</p>
+                        </div>
+                        <div class="gift-card-back glass-card">
+                            <div class="flower-ornament"></div>
+                            <p class="body-text back-letter-text" id="giftQuote-2"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gift-card-3d reveal-element">
+                    <div class="gift-card-inner">
+                        <div class="gift-card-front glass-card">
+                            <div class="gift-ribbon-svg"></div>
+                            <h3 class="heading-text">Semesta Kecil</h3>
+                            <p class="body-text">Ketuk untuk membuka</p>
+                        </div>
+                        <div class="gift-card-back glass-card">
+                            <div class="star-ornament"></div>
+                            <p class="body-text back-letter-text" id="giftQuote-3"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="letter" class="section-container full-screen-center">
+            <div class="envelope-area reveal-element">
+                <div class="envelope-wrapper" id="envelopeWrapper">
+                    <div class="envelope">
+                        <div class="flap"></div>
+                        <div class="pocket"></div>
+                        <div class="letter" id="digitalLetter">
+                            <div class="letter-content">
+                                <h3 class="letter-title">Untuk Najla Tercinta</h3>
+                                <div id="typewriterTarget" class="letter-body font-accent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center body-text hint-text">Ketuk amplop untuk membuka pesan terdalam</p>
+            </div>
+        </section>
+
+        <section id="wishes" class="section-container">
+            <div class="glass-card wishes-card reveal-element">
+                <header class="section-header">
+                    <span class="accent-text">Doa & Cita</span>
+                    <h2 class="heading-text">Simpan Harapanmu</h2>
+                </header>
+                <p class="body-text text-center max-w-text">
+                    Tuliskan apa saja impian, doa, atau bait harapan yang ingin kau terbangkan ke langit malam digital ini. Setiap harapan akan abadi menjadi bintang.
+                </p>
+                <div class="wishes-form-container">
+                    <textarea id="wishInput" class="ios-textarea" placeholder="Tulis harapanmu di sini, Najla..." rows="4" maxlength="300" required></textarea>
+                    <button id="btnSubmitWish" class="ios-btn">Tuliskan Harapan</button>
+                </div>
+                <div class="wishes-board" id="wishesDisplayArea">
+                    </div>
+            </div>
+        </section>
+
+        <section id="closing" class="section-container full-screen-center closing-bg-transition">
+            <div class="night-overlay" id="nightOverlay"></div>
+            <div class="glass-card closing-card reveal-element text-center">
+                <div class="soft-cloud-ornament"></div>
+                <h2 class="heading-text title-glow">Menatap Masa Depan</h2>
+                <p class="body-text dynamic-closing-quote font-accent" id="finalClosingPhrase"></p>
+                <div class="signature-block">
+                    <p class="body-text text-bold">Untuk Najla.</p>
+                    <p class="accent-text letter-spacing-wide">Terima kasih telah menjadi bagian dari begitu banyak cerita yang layak dikenang.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Tutup Galeri">&times;</button>
+        <div class="lightbox-content-wrapper">
+            <img src="" alt="Preview Fullscreen" class="lightbox-img" id="lightboxImg">
+        </div>
+    </div>
+
+    <div class="premium-music-player glass-card" id="musicPlayer">
+        <audio id="audioSource" src="assets/audio/lagu.mp3" loop></audio>
+        <div class="player-layout">
+            <div class="album-cover-wrapper">
+                <div class="album-cover" id="albumDisc">
+                    <svg viewBox="0 0 100 100" class="svg-disc">
+                        <circle cx="50" cy="50" r="48" fill="rgba(255,192,203,0.3)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="15" fill="#fff"/>
+                        <path d="M50 5A45 45 0 0 1 95 50" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="player-controls">
+                <div class="track-info">
+                    <span class="track-title">Melodi Untuk Najla</span>
+                    <span class="track-status" id="playerStatus">Paused</span>
+                </div>
+                <div class="progress-container" id="progressBarContainer">
+                    <div class="progress-bar" id="progressBarFill"></div>
+                </div>
+                <div class="control-buttons">
+                    <button class="player-btn" id="btnPlayPause" aria-label="Play atau Pause">
+                        <svg id="playIcon" viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        <svg id="pauseIcon" viewBox="0 0 24 24" width="20" height="20" class="display-none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"/></svg>
+                    </button>
+                    <div class="volume-slider-wrapper">
+                        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="currentColor"/></svg>
+                        <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="0.8" class="ios-slider">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="player-visualizer" id="visualizerWrapper">
+            <span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span>
+        </div>
+    </div>
+
+</body>
+</html>
