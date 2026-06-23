@@ -1,0 +1,935 @@
+/* ==========================================================================
+   CSS STYLING ARCHITECTURE
+   Premium Pinterest & Apple Glassmorphism Aesthetic
+   ========================================================================== */
+
+:root {
+    /* Color Palette definition */
+    --primary-pink: #ffb7c5;
+    --soft-pink: #ffe5ec;
+    --baby-pink: #fff0f3;
+    --sky-blue: #cce7ff;
+    --pastel-blue: #e8f4f8;
+    --pure-white: #ffffff;
+    --soft-white: #fafafa;
+    --matte-black: #1a1a1a;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: rgba(255, 183, 197, 0.2);
+    
+    /* Typography Layout System */
+    --font-heading: 'Playfair Display', serif;
+    --font-sub: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-romantic: 'Cormorant Garamond', serif;
+    
+    /* iOS Transitions */
+    --spring-transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --smooth-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Base Configuration & Soft Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--baby-pink), var(--pastel-blue), var(--soft-pink));
+    background-size: 400% 400%;
+    animation: luxuryGradient 20s ease infinite;
+    color: var(--matte-black);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar Interface */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--baby-pink);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-pink);
+    border-radius: 10px;
+}
+
+/* Ambient Canvas Decorative Engine */
+.ambient-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Glassmorphism Structural Core */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 16px 40px var(--glass-shadow);
+}
+
+/* Premium Buttons Implementation */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-family: var(--font-sub);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--spring-transition);
+    border: none;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.btn-primary {
+    background: var(--pure-white);
+    color: var(--matte-black);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(255, 183, 197, 0.4);
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, var(--primary-pink), #ffa6b9);
+    color: var(--pure-white);
+    box-shadow: 0 8px 20px var(--glass-shadow);
+}
+
+.btn-accent:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(255, 183, 197, 0.6);
+}
+
+/* ==========================================================================
+   MENU AWAL STYLE (LANDING PORTAL)
+   ========================================================================== */
+.landing-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+    padding: 20px;
+}
+
+.landing-screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gate-card {
+    padding: 40px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    transform: scale(0.95);
+    transition: var(--spring-transition);
+}
+
+.landing-screen.active .gate-card {
+    transform: scale(1);
+}
+
+.brand-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-family: var(--font-sub);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.landing-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.2;
+    color: var(--matte-black);
+    margin-bottom: 12px;
+}
+
+.landing-title span {
+    font-family: var(--font-romantic);
+    font-style: italic;
+    color: #e07a5f;
+}
+
+.landing-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Math Game Elements */
+.game-container {
+    background: rgba(255,255,255,0.4);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.puzzle-box {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+    color: var(--matte-black);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#gameAnswer {
+    padding: 14px;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.8);
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: var(--font-sub);
+    outline: none;
+    transition: var(--smooth-transition);
+}
+
+#gameAnswer:focus {
+    border-color: var(--primary-pink);
+    box-shadow: 0 0 0 3px rgba(255, 183, 197, 0.3);
+}
+
+.game-feedback {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-family: var(--font-sub);
+    min-height: 20px;
+    transition: var(--smooth-transition);
+}
+
+.shake {
+    animation: shakeAnim 0.5s ease-in-out;
+}
+
+/* ==========================================================================
+   MENU TENGAH STYLING (MAIN PLATFORM)
+   ========================================================================== */
+.main-scrapbook {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.main-scrapbook.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Hero Module */
+.hero-section {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero-badge {
+    font-family: var(--font-sub);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: #e07a5f;
+    margin-bottom: 16px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.italic-text {
+    font-family: var(--font-romantic);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hero-desc {
+    max-width: 600px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #555;
+    line-height: 1.6;
+}
+
+.scroll-indicator {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.mouse-wheel {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--matte-black);
+    border-radius: 12px;
+    position: relative;
+}
+
+.mouse-wheel::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: var(--matte-black);
+    border-radius: 2px;
+    animation: scrollMouse 1.5s infinite;
+}
+
+.scroll-text {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Pinterest Structural Layout Grid */
+.section-header {
+    margin-bottom: 40px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-family: var(--font-sub);
+    letter-spacing: 2px;
+    color: #999;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-top: 4px;
+}
+
+.pinterest-grid {
+    columns: 4 250px;
+    column-gap: 24px;
+    width: 100%;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 24px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.03);
+    transition: var(--spring-transition);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 35px var(--glass-shadow);
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    /* Forced structural standard configuration 3:4 */
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--smooth-transition);
+}
+
+.gallery-item:hover .image-container img {
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    padding: 16px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--matte-black);
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(5px);
+}
+
+/* Timeline Layout Elements */
+.timeline-section {
+    padding: 100px 0;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px;
+    border-left: 2px solid var(--primary-pink);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -41px;
+    top: 24px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--pure-white);
+    border: 4px solid var(--primary-pink);
+}
+
+.timeline-card {
+    padding: 24px;
+    transition: var(--smooth-transition);
+}
+
+.timeline-card:hover {
+    transform: translateX(8px);
+}
+
+.timeline-date {
+    font-size: 0.8rem;
+    font-family: var(--font-sub);
+    color: #e07a5f;
+    font-weight: 500;
+}
+
+.timeline-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin: 4px 0 10px 0;
+}
+
+.timeline-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Gift Section Module */
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.gift-card-3d {
+    height: 220px;
+    perspective: 1500px;
+    cursor: pointer;
+}
+
+.gift-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gift-card-3d.flipped .gift-card-inner {
+    transform: rotateY(180deg);
+}
+
+.gift-card-front, .gift-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.gift-card-back {
+    transform: rotateY(180deg);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.gift-icon {
+    width: 50px;
+    height: 50px;
+    color: var(--primary-pink);
+    margin-bottom: 12px;
+}
+
+.gift-card-front span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.gift-card-front h4, .gift-card-back h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-top: 6px;
+}
+
+/* Wish Platform Infrastructure */
+.wish-section {
+    padding: 100px 0;
+}
+
+.wish-box {
+    padding: 50px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.sparkle-icon {
+    font-size: 2.5rem;
+    color: #e07a5f;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.wish-box h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 12px 0;
+}
+
+.wish-input-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+}
+
+#wishInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding-left: 20px;
+    font-family: var(--font-body);
+    outline: none;
+    font-size: 1rem;
+}
+
+.wish-sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.flying-star {
+    position: absolute;
+    color: #ffca28;
+    font-size: 1.5rem;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ==========================================================================
+   MENU AKHIR (ENDING PAGE MODULE)
+   ========================================================================== */
+.ending-page {
+    padding: 80px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.love-letter-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.letter-stamp {
+    font-size: 2rem;
+    color: var(--primary-pink);
+    margin-bottom: 15px;
+}
+
+.letter-title {
+    font-family: var(--font-sub);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.romantic-quote {
+    font-family: var(--font-romantic);
+    font-style: italic;
+    font-size: 1.45rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.letter-line {
+    width: 60px;
+    height: 1px;
+    background: var(--primary-pink);
+    margin: 25px auto;
+}
+
+.letter-closing {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    width: 100%;
+    padding-top: 30px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.made-with {
+    font-size: 0.85rem;
+    margin-top: 6px;
+}
+
+.premium-name {
+    font-family: var(--font-romantic);
+    font-style: italic;
+    font-weight: 600;
+    color: #e07a5f;
+}
+
+/* ==========================================================================
+   FLOATING CORE MUSIC PLAYER UI (PREMIUM MINI)
+   ========================================================================== */
+.music-player-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 90;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 40px;
+    max-width: 320px;
+    width: calc(100% - 48px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.disc-wrapper {
+    width: 44px;
+    height: 44px;
+}
+
+.music-disc {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #222, #555, #222);
+    border: 3px solid var(--pure-white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: rotateDisc 4s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-disc.playing {
+    animation-play-state: running;
+}
+
+.player-controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.track-title {
+    font-size: 0.75rem;
+    font-family: var(--font-sub);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-group {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-player {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    color: var(--matte-black);
+    transition: var(--smooth-transition);
+}
+
+.btn-player:hover {
+    color: var(--primary-pink);
+    transform: scale(1.1);
+}
+
+#volumeSlider {
+    width: 100%;
+    height: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(0,0,0,0.1);
+    border-radius: 2px;
+    outline: none;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--matte-black);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   LIGHTBOX VIEW MODAL (iOS SPRING SPECIFICATION)
+   ========================================================================== */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 24px;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    max-width: 450px;
+    width: 100%;
+    transform: scale(0.85);
+    transition: var(--spring-transition);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-content img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.lightbox-card {
+    padding: 20px;
+    text-align: center;
+}
+
+#lightboxCaption {
+    font-family: var(--font-romantic);
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(255,255,255,0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--smooth-transition);
+}
+
+.lightbox-close:hover {
+    transform: scale(1.1);
+    background: var(--pure-white);
+}
+
+/* ==========================================================================
+   ANIMATION KEYFRAMES ENGINE
+   ========================================================================== */
+@keyframes luxuryGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+@keyframes scrollMouse {
+    0% { opacity: 1; top: 8px; }
+    50% { opacity: 0; top: 18px; }
+    100% { opacity: 1; top: 8px; }
+}
+
+@keyframes rotateDisc {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Base Native SVG Particles Animation setup via inline programmatic style */
+.svg-particle {
+    position: absolute;
+    pointer-events: none;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    0% { transform: translateY(105vh) translateX(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) translateX(50px) rotate(360deg); opacity: 0; }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN ADAPTATION (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .pinterest-grid {
+        columns: 3 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .pinterest-grid {
+        columns: 2 140px;
+        column-gap: 16px;
+    }
+    .gallery-item {
+        margin-bottom: 16px;
+    }
+    .gate-card, .wish-box, .love-letter-container {
+        padding: 24px;
+    }
+    .music-player-container {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        width: calc(100% - 32px);
+    }
+}
+
+/* Accessibility Reduced Motion Handling */
+@media (prefers-reduced-motion: reduce) {
+    body, .music-disc, .svg-particle, .sparkle-icon {
+        animation: none !important;
+    }
+    .gallery-item, .btn, .gift-card-inner {
+        transition: none !important;
+    }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Najla — Our Premium Scrapbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-canvas" id="ambientCanvas"></div>
+
+    <section class="landing-screen active" id="landingScreen">
+        <div class="glass-card gate-card">
+            <div class="brand-badge">Designed for Najla</div>
+            <h1 class="landing-title">An Elegant Space <br><span>of Us</span></h1>
+            <p class="landing-subtitle">Selesaikan teka-teki kecil ini untuk membuka kotak memori premium kita.</p>
+            
+            <div class="game-container">
+                <div class="puzzle-box">
+                    <span id="num1">0</span>
+                    <span id="operator">+</span>
+                    <span id="num2">0</span>
+                    <span>=</span>
+                </div>
+                <div class="input-wrapper">
+                    <input type="number" id="gameAnswer" placeholder="Jawaban kamu..." autocomplete="off">
+                    <button class="btn btn-primary" id="btnUnlock">
+                        <span>Open Our Scrapbook</span>
+                        <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </button>
+                </div>
+                <p class="game-feedback" id="gameFeedback"></p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-scrapbook" id="mainScrapbook">
+        
+        <section class="hero-section">
+            <div class="hero-badge">Aesthetic Scrapbook</div>
+            <h2 class="hero-title">Every Detail of You, <br><span class="italic-text">Beautifully Framed.</span></h2>
+            <p class="hero-desc">Sebuah arsip digital kurasi rasa, tawa, dan cerita yang tumbuh bersamamu, Najla.</p>
+            <div class="scroll-indicator">
+                <span class="mouse-wheel"></span>
+                <span class="scroll-text">Scroll Down</span>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="section-header">
+                <span class="tag">01 / MOMENTS</span>
+                <h3 class="section-title">The Pinterest Gallery</h3>
+            </div>
+            <div class="pinterest-grid" id="pinterestGrid">
+                </div>
+        </section>
+
+        <section class="timeline-section">
+            <div class="section-header">
+                <span class="tag">02 / JOURNEY</span>
+                <h3 class="section-title">Bagian Cerita Kita</h3>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Awal Cerita</span>
+                        <h4>Titik Temu Pertama</h4>
+                        <p>Saat semesta mempertemukan kita secara anggun, membawa senyum paling teduh dalam hidupku.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Setiap Hari</span>
+                        <h4>Hal-Hal Sederhana</h4>
+                        <p>Tertawa lepas, bertukar cerita random, hingga menemukan rasa nyaman yang tidak pernah ada tandingannya.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Masa Depan</span>
+                        <h4>Ekspektasi Indah</h4>
+                        <p>Melangkah beriringan bersama Najla, merajut mimpi-mimpi besar dengan penuh kehangatan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gifts-section">
+            <div class="section-header">
+                <span class="tag">03 / SURPRISE</span>
+                <h3 class="section-title">Interactive Gift Box</h3>
+            </div>
+            <div class="gifts-grid">
+                <div class="gift-card-3d" onclick="flipGiftCard(this)">
+                    <div class="gift-card-inner">
+                        <div class="gift-card-front glass-card">
+                            <div class="gift-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7a3.5 3.5 0 10-3.5-3.5C8.5 5.5 12 7 12 7zM12 7a3.5 3.5 0 113.5-3.5C15.5 5.5 12 7 12 7z"/></svg>
+                            </div>
+                            <span>Tap to Open</span>
+                            <h4>A Piece of Comfort</h4>
+                        </div>
+                        <div class="gift-card-back glass-card">
+                            <h4>Terima Kasih, Najla</h4>
+                            <p>Untuk setiap waktu yang kamu luangkan, pelukan hangat lewat kata, dan caramu menghargaiku sepenuhnya.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gift-card-3d" onclick="flipGiftCard(this)">
+                    <div class="gift-card-inner">
+                        <div class="gift-card-front glass-card">
+                            <div class="gift-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="var(--primary-pink)" stroke="none"/></svg>
+                            </div>
+                            <span>Tap to Open</span>
+                            <h4>Our Future Horizon</h4>
+                        </div>
+                        <div class="gift-card-back glass-card">
+                            <h4>Doa & Harapanku</h4>
+                            <p>Semoga harimu selalu dilingkupi kebahagiaan, langkahmu dimudahkan, dan aku bisa terus ada untuk merayakan semua pencapaianmu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wish-section">
+            <div class="glass-card wish-box">
+                <div class="sparkle-icon">✦</div>
+                <h3>The Star Fountain</h3>
+                <p>Tuliskan satu keinginan kecil atau besarmu malam ini. Mari biarkan semesta menyimpannya di antara rasi bintang.</p>
+                
+                <div class="wish-input-group" id="wishInputGroup">
+                    <input type="text" id="wishInput" placeholder="Tulis harapanmu di sini, Najla..." autocomplete="off">
+                    <button class="btn btn-accent" id="btnMakeWish">Make A Wish</button>
+                </div>
+
+                <div class="wish-sky" id="wishSky"></div>
+            </div>
+        </section>
+
+        <footer class="ending-page">
+            <div class="love-letter-container glass-card">
+                <div class="letter-stamp">❤</div>
+                <h4 class="letter-title">A Message Hidden in Code</h4>
+                <p class="romantic-quote">"Di antara miliaran algoritma dan susunan piksel di dunia, kamu adalah baris kode terindah yang melengkapi hidupku secara sempurna."</p>
+                <div class="letter-line"></div>
+                <p class="letter-closing">Selamanya mengagumimu,<br><strong>Seseorang yang Selalu Menyayangimu</strong></p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Crafted Beautifully. All Rights Reserved.</p>
+                <p class="made-with">Made with absolute love for <span class="premium-name">Najla</span></p>
+            </div>
+        </footer>
+
+    </main>
+
+    <div class="music-player-container glass-card" id="musicPlayer">
+        <div class="disc-wrapper">
+            <div class="music-disc" id="musicDisc"></div>
+        </div>
+        <div class="player-controls">
+            <span class="track-title">lagu.mp3</span>
+            <div class="btn-group">
+                <button class="btn-player" id="btnPlayPause" aria-label="Play/Pause">
+                    <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="iconPause" class="hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="btn-player" id="btnMute" aria-label="Mute/Unmute">
+                    <svg id="iconVolume" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                    <svg id="iconMuted" class="hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                </button>
+            </div>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume Slider">
+        </div>
+    </div>
+
+    <audio id="bgMusic" src="assets/audio/lagu.mp3" loop prefetch="auto"></audio>
+
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close View">&times;</button>
+        <div class="lightbox-content">
+            <img src="" id="lightboxImg" alt="Main Display Container">
+            <div class="lightbox-card glass-card">
+                <p id="lightboxCaption"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
